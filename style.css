@@ -4,15 +4,55 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+/* ================= THEME CLEAN ================= */
 :root {
-    --primary: #1e88e5;
-    --primary-dark: #1565c0;
+    --primary: #066bc4dc;
+    --primary-dark: #0d4a8fcc;
     --danger: #e53935;
+    --danger-dark: #af100d;
     --bg-light: #f5f7fa;
     --text-dark: #333;
     --text-light: #666;
     --white: #ffffff;
+}
+/* ================= THEME DARK ================= */
+body.theme-dark {
+    --primary: #f1e041;
+    --primary-dark: #e9d209;
+
+    --danger: #ffffff;
+    --danger-dark: #2e2d2d;
+
+    --bg-light: #121212;
+    --white: #1e1e1e;
+
+    --text-dark: #f1f1f1;
+    --text-light: #bdbdbd;
+}
+/* ================= THEME COLORFUL ================= */
+body.theme-colorful {
+    --primary: #a04cd4;
+    --primary-dark: #4a1470;
+
+    --danger: #8e1c3a;
+    --danger-dark: #5f0f25;
+
+
+    --bg-light: #f0eef3;
+    --white: #faf9fb;
+
+    --text-dark: #6b2739;
+    --text-light: #8d354c;
+
+}
+body,
+.header,
+.sobre,
+.noticia-card,
+.footer {
+    transition: 
+        background-color 0.4s ease,
+        color 0.4s ease;
 }
 
 body {
@@ -24,20 +64,31 @@ body {
 
 /* ================= HEADER ================= */
 .header {
-    background-color: var(--white);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    background: transparent;
+    box-shadow: none;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 32px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+    padding: 20px 32px;
+    z-index: 10;
 }
+
 
 .logo {
     height: 48px;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
 }
 
 .btn-minhas-consultas {
-    background-color: var(--primary);
+    background-color:var(--primary);
+    backdrop-filter: blur(4px);
     color: var(--white);
     border: none;
     padding: 10px 18px;
@@ -49,6 +100,46 @@ body {
 
 .btn-minhas-consultas:hover {
     background-color: var(--primary-dark);
+}
+.header-right-vertical {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* ===== THEMES EM COLUNA ===== */
+
+
+/* Coluna de temas */
+.theme-switcher.theme-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    position: absolute;
+    top: 52px;
+    right: 0;
+}
+
+.theme-btn {
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.2s ease;
+}
+
+.theme-btn img {
+    width: 32px;
+    height: 32px;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
 }
 
 /* ================= BANNER / CARROSSEL ================= */
@@ -64,7 +155,9 @@ body {
 .carousel {
     position: relative;
     width: 100%;
-    height: 360px;
+    height: 80vh;
+    min-height: 740px;
+    max-height: 800px;
     overflow: hidden;
 }
 
@@ -97,8 +190,18 @@ body {
     font-weight: 700;
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
 }
+/* ===== CARROSSEL FUNCIONAL ===== */
+.carousel-item {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
 
-
+.carousel-item.active {
+    opacity: 1;
+    z-index: 1;
+}
 
 /* ================= CTA ESPECIALIDADES ================= */
 .cta-especialidades {
@@ -180,18 +283,44 @@ body {
     padding: 32px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
+/* Título */
 .sobre h2 {
     text-align: center;
     margin-bottom: 16px;
+    transition: color 0.4s ease;
 }
 
+/* Texto padrão */
 .sobre p {
     margin-bottom: 12px;
     color: var(--text-light);
     text-align: center;
+    transition: color 0.4s ease;
 }
+
+/* Texto em negrito */
+.sobre strong {
+    color: var(--primary);
+    transition: color 0.4s ease;
+}
+
+/* ===== HOVER DO SOBRE ===== */
+.sobre:hover {
+    background-color: var(--primary);
+}
+
+.sobre:hover h2,
+.sobre:hover p {
+    color: var(--white);
+}
+
+.sobre:hover strong {
+    color: var(--danger-dark);
+}
+
 
 /* ================= FOOTER ================= */
 .footer {
@@ -235,23 +364,4 @@ body {
     .noticias-grid {
         grid-template-columns: 1fr;
     }
-}
-
-/* ===== CARROSSEL FUNCIONAL ===== */
-.carousel {
-    position: relative;
-    width: 100%;
-    height: 360px;
-}
-
-.carousel-item {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
-}
-
-.carousel-item.active {
-    opacity: 1;
-    z-index: 1;
 }
