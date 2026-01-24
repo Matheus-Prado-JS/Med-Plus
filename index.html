@@ -23,7 +23,7 @@
 
     <div class="header-right header-right-vertical">
 
-    <button class="btn-minhas-consultas">
+    <button class="btn-minhas-consultas" id="btn-minhas-consultas">
         Minhas Consultas
     </button>
 
@@ -96,29 +96,69 @@
 
             <div class="noticias-grid">
 
-                <article class="noticia-card">
-                    <h3>Avanços na Medicina Preventiva</h3>
-                    <p>Novos estudos apontam a importância do acompanhamento regular para prevenção de doenças.</p>
-                    <span>Saúde</span>
+                <article class="noticia-card"
+                    data-title="Avanços na Medicina Preventiva"
+                    data-text="A medicina preventiva tem evoluído de forma significativa nos últimos anos, 
+                    tornando-se uma das principais aliadas na promoção da saúde e no aumento da qualidade de vida 
+                    da população. Com o avanço da tecnologia, exames mais precisos, acessíveis e menos invasivos 
+                    permitem a identificação precoce de doenças antes mesmo do surgimento de sintomas. 
+                    Investir em medicina preventiva não apenas reduz custos com tratamentos complexos, como também 
+                    proporciona maior bem-estar ao paciente, que passa a ter um acompanhamento mais próximo e 
+                    consciente da própria saúde."
+                    data-img="assets/noticia-avanços.jpg"
+                >
+                <h3>Avanços na Medicina Preventiva</h3>
+                <p>A prevenção é o primeiro passo para uma vida mais saudável.</p>
+                <span>Prevenção</span>
                 </article>
 
-                <article class="noticia-card">
-                    <h3>Importância do Check-up Anual</h3>
-                    <p>Especialistas reforçam como exames periódicos ajudam no diagnóstico precoce.</p>
-                    <span>Bem-estar</span>
+                <article class="noticia-card"
+                    data-title="Importância do Check-up Anual"
+                    data-text="O check-up anual é uma das formas mais eficazes de cuidar da saúde de maneira preventiva. 
+                    Por meio de exames laboratoriais, avaliações clínicas e consultas especializadas, é possível 
+                    identificar alterações no organismo ainda em estágios iniciais, aumentando significativamente as 
+                    chances de tratamento bem-sucedido. Além do aspecto físico, o check-up também contribui para a saúde 
+                    mental, ajudando a detectar sinais de estresse, ansiedade e outros transtornos que impactam 
+                    diretamente a qualidade de vida. Manter os exames em dia é um ato de cuidado."
+                    data-img="assets/noticia-checkup.jpg"
+                >
+                <h3>Importância do Check-up Anual</h3>
+                <p>Exames em dia ajudam a evitar problemas no futuro.</p>
+                <span>Check-up</span>
                 </article>
 
-                <article class="noticia-card">
-                    <h3>Cuidados com a Visão</h3>
-                    <p>Dicas para manter a saúde ocular em dia em meio ao uso excessivo de telas.</p>
-                    <span>Oftalmologia</span>
+                <article class="noticia-card"
+                    data-title="Cuidados com a visão"
+                    data-text="A saúde ocular é fundamental para o bem-estar e para a realização das atividades do 
+                    dia a dia. Com o aumento do uso de telas — celulares, computadores e televisões —, problemas como 
+                    fadiga ocular, ressecamento dos olhos e dificuldades de foco tornaram-se cada vez mais comuns. 
+                    Consultas regulares com o oftalmologista permitem a detecção precoce de condições como miopia, 
+                    astigmatismo, glaucoma e catarata. Além das consultas, hábitos simples fazem grande diferença: 
+                    pausas regulares durante o uso de telas, boa iluminação nos ambientes, uso de óculos adequados 
+                    e proteção contra raios solares. Cuidar da visão é preservar autonomia. "
+                    data-img="assets/noticia-visão.webp"
+                >
+                <h3>Cuidados com a visão</h3>
+                <p>Ver bem é essencial para viver com qualidade.</p>
+                <span>Oftalmologia</span>
                 </article>
 
-                <article class="noticia-card">
-                    <h3>Alimentação e Saúde do Coração</h3>
-                    <p>Uma dieta equilibrada pode reduzir riscos cardiovasculares.</p>
-                    <span>Cardiologia</span>
+                <article class="noticia-card"
+                    data-title="Alimentação e Saúde do Coração"
+                    data-text="Uma alimentação equilibrada exerce papel fundamental na saúde do coração e na prevenção 
+                    de doenças cardiovasculares. Dietas ricas em frutas, legumes, verduras, grãos integrais e gorduras 
+                    boas ajudam a controlar níveis de colesterol, pressão arterial e glicose no sangue. Por outro lado, 
+                    o consumo excessivo de alimentos ultraprocessados, ricos em sal, açúcar e gorduras saturadas, está 
+                    diretamente associado ao aumento do risco de infarto, AVC e outras complicações cardíacas. 
+                    Aliar uma boa alimentação à prática regular de atividades físicas, controle do estresse e 
+                    acompanhamento médico periódico forma a base para um coração mais saudável."
+                    data-img="assets/noticia-cardiologia.webp"
+                >
+                <h3>Alimentação e Saúde do Coração</h3>
+                <p>Uma dieta equilibrada pode reduzir riscos cardiovasculares.</p>
+                <span>Cardiologia</span>
                 </article>
+
 
             </div>
         </section>
@@ -154,6 +194,22 @@
             <p>© 2026 - Projeto Fictício para fins educacionais</p>
         </div>
     </footer>
+
+    <!-- ===== MODAL NOTÍCIA ===== -->
+<div class="modal-overlay" id="modalNoticia">
+    <div class="modal-noticia">
+        <button class="modal-close" id="closeModal">×</button>
+
+        <div class="modal-content">
+            <img src="" alt="Imagem da notícia" class="modal-img">
+
+            <div class="modal-text">
+                <h2 class="modal-title"></h2>
+                <p class="modal-body"></p>
+            </div>
+        </div>
+    </div>
+</div>
 
     <!-- JavaScript -->
     <script src="script.js"></script>

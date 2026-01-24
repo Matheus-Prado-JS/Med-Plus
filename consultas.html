@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Med+ | Minhas Consultas</title>
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+    <a href="index.html">
+    <img src="assets/logo_medplus.png" alt="Logo do Hospital Med+" class="logo">
+</a>
+
+
+    <div class="header-center"></div>
+
+    <div class="header-right header-right-vertical">
+
+        <button class="btn-minhas-consultas active">
+            Minhas Consultas
+        </button>
+
+        <!-- Seletor de Tema -->
+        <div class="theme-switcher theme-vertical">
+            <button class="theme-btn" data-theme="clean" title="Modo Clean">
+                <img src="assets/light_mode.png" alt="Modo Clean">
+            </button>
+
+            <button class="theme-btn" data-theme="dark" title="Modo Dark">
+                <img src="assets/dark_mode.png" alt="Modo Dark">
+            </button>
+
+            <button class="theme-btn" data-theme="colorful" title="Modo Colorful">
+                <img src="assets/colorful_mode.png" alt="Modo Colorful">
+            </button>
+        </div>
+
+    </div>
+</header>
+
+<!-- ================= MAIN ================= -->
+<main>
+
+    <!-- ===== TÍTULO ===== -->
+    <section class="consultas-header">
+        <h1>Minhas Consultas</h1>
+        <p>Acompanhe suas consultas agendadas e histórico médico</p>
+    </section>
+
+    <!-- ===== CONSULTAS AGENDADAS ===== -->
+    <section class="consultas-section">
+        <h2>Consultas Agendadas</h2>
+
+        <div class="consultas-grid">
+
+            <div class="consulta-card">
+                <h3>Dermatologia</h3>
+                <p><strong>Médico:</strong> Dra. Ana Ribeiro</p>
+                <p><strong>Data:</strong> 22/03/2026</p>
+                <p><strong>Horário:</strong> 14:30</p>
+
+                <span class="consulta-status agendada">Agendada</span>
+            </div>
+
+            <div class="consulta-card">
+                <h3>Cardiologia</h3>
+                <p><strong>Médico:</strong> Dr. Marcos Silva</p>
+                <p><strong>Data:</strong> 02/04/2026</p>
+                <p><strong>Horário:</strong> 09:00</p>
+
+                <span class="consulta-status agendada">Agendada</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== HISTÓRICO ===== -->
+    <section class="consultas-section">
+        <h2>Histórico de Consultas</h2>
+
+        <div class="consultas-grid">
+
+            <div class="consulta-card past">
+                <h3>Oftalmologia</h3>
+                <p><strong>Médico:</strong> Dr. Paulo Nunes</p>
+                <p><strong>Data:</strong> 10/01/2026</p>
+                <p><strong>Horário:</strong> 11:00</p>
+
+                <span class="consulta-status concluida">Concluída</span>
+            </div>
+            <div class="consulta-card past">
+                <h3>Nutricionista</h3>
+                <p><strong>Médico:</strong> Dr. José Fonseca</p>
+                <p><strong>Data:</strong> 12/01/2026</p>
+                <p><strong>Horário:</strong> 15:00</p>
+
+                <span class="consulta-status perdida">Perdida</span>
+            </div>
+            
+
+        </div>
+    </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <div class="footer-info">
+        <p><strong>Med+</strong> - Hospital Fictício</p>
+        <p>Endereço: Rua Exemplo, 123 - Cidade Fictícia</p>
+        <p>Telefone: (00) 0000-0000</p>
+        <p>Email: contato@medplus.com</p>
+    </div>
+
+    <div class="footer-copy">
+        <p>© 2026 - Projeto Fictício para fins educacionais</p>
+    </div>
+</footer>
+
+<!-- JS Global -->
+<script src="script.js"></script>
+</body>
+</html>
