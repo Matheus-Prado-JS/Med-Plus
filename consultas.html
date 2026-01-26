@@ -22,7 +22,7 @@
     <div class="header-right header-right-vertical">
 
         <button class="btn-minhas-consultas active">
-            Minhas Consultas
+            Sair
         </button>
 
         <!-- Seletor de Tema -->
@@ -46,6 +46,18 @@
 <!-- ================= MAIN ================= -->
 <main>
 
+    <!-- ===== BEM-VINDO USUÁRIO ===== -->
+    <section class="welcome-user">
+        <div class="welcome-card">
+            <p class="welcome-text">Bem-vindo(a),</p>
+            <h2 id="userName">Paciente</h2>
+            <span class="welcome-sub">
+                Aqui estão suas consultas e histórico médico
+            </span>
+        </div>
+    </section>
+
+
     <!-- ===== TÍTULO ===== -->
     <section class="consultas-header">
         <h1>Minhas Consultas</h1>
@@ -58,23 +70,9 @@
 
         <div class="consultas-grid">
 
-            <div class="consulta-card">
-                <h3>Dermatologia</h3>
-                <p><strong>Médico:</strong> Dra. Ana Ribeiro</p>
-                <p><strong>Data:</strong> 22/03/2026</p>
-                <p><strong>Horário:</strong> 14:30</p>
+            <div class="consultas-grid" id="consultasAgendadas"></div>
 
-                <span class="consulta-status agendada">Agendada</span>
-            </div>
-
-            <div class="consulta-card">
-                <h3>Cardiologia</h3>
-                <p><strong>Médico:</strong> Dr. Marcos Silva</p>
-                <p><strong>Data:</strong> 02/04/2026</p>
-                <p><strong>Horário:</strong> 09:00</p>
-
-                <span class="consulta-status agendada">Agendada</span>
-            </div>
+            <div class="consultas-grid" id="consultasAgendadas"></div>
 
         </div>
     </section>
@@ -85,23 +83,9 @@
 
         <div class="consultas-grid">
 
-            <div class="consulta-card past">
-                <h3>Oftalmologia</h3>
-                <p><strong>Médico:</strong> Dr. Paulo Nunes</p>
-                <p><strong>Data:</strong> 10/01/2026</p>
-                <p><strong>Horário:</strong> 11:00</p>
+            <div class="consultas-grid" id="consultasHistorico"></div>
 
-                <span class="consulta-status concluida">Concluída</span>
-            </div>
-            <div class="consulta-card past">
-                <h3>Nutricionista</h3>
-                <p><strong>Médico:</strong> Dr. José Fonseca</p>
-                <p><strong>Data:</strong> 12/01/2026</p>
-                <p><strong>Horário:</strong> 15:00</p>
-
-                <span class="consulta-status perdida">Perdida</span>
-            </div>
-            
+            <div class="consultas-grid" id="consultasHistorico"></div>
 
         </div>
     </section>
