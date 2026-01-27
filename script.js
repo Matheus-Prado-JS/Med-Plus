@@ -28,6 +28,33 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = "login.html";
         });
     }
+    /* =====================================================
+       Modelo de Primeiro Acesso LOGIN/REGISTRO
+    ===================================================== */
+    const btnPrimeiroAcesso = document.getElementById("btnPrimeiroAcesso");
+const btnVoltarLogin = document.getElementById("btnVoltarLogin");
+
+const loginView = document.getElementById("loginView");
+const registerView = document.getElementById("registerView");
+
+if (btnPrimeiroAcesso) {
+    btnPrimeiroAcesso.addEventListener("click", e => {
+        e.preventDefault();
+
+        loginView.classList.add("hidden");
+        registerView.classList.remove("hidden");
+    });
+}
+
+
+if (btnVoltarLogin) {
+    btnVoltarLogin.addEventListener("click", e => {
+        e.preventDefault();
+        registerView.classList.add("hidden");
+        loginView.classList.remove("hidden");
+    });
+}
+
 
     /* =====================================================
        SISTEMA DE TEMA
@@ -116,29 +143,43 @@ document.addEventListener("DOMContentLoaded", () => {
             { especialidade: "Cardiologia", medico: "Dr. Marcos Silva", data: "20/01/2026", hora: "10:30", status: "concluida" },
             { especialidade: "Dermatologia", medico: "Dra. Ana Ribeiro", data: "22/01/2026", hora: "15:30", status: "perdida" }
         ]
+    },
+        {
+        cpf: "444.444.444-44",
+        senha: "44444444",
+        nome: "Camila Souza",
+        consultas: [
+        ]
     }
 ];
-
-
 /* =====================================================
-   EXIBIR NOME DO USUÁRIO (CONSULTAS)
+   JUNÇÃO DE USUÁRIOS (FAKE + REGISTRADOS)
 ===================================================== */
-const userNameEl = document.getElementById("userName");
-const userCpf = localStorage.getItem("medplus-user-cpf");
-const userData = FAKE_USERS.find(u => u.cpf === userCpf);
 
-if (userNameEl && userData) {
-    userNameEl.textContent = userData.nome;
+function getAllUsers() {
+    const storedUsers = JSON.parse(localStorage.getItem("medplus-users")) || [];
+    return [...FAKE_USERS, ...storedUsers];
 }
+/* ================= Máscara do CPF ================= */
+function aplicarMascaraCPF(input) {
+    if (!input) return;
 
+    input.addEventListener("input", () => {
+        let v = input.value.replace(/\D/g, "").slice(0, 11);
 
+        v = v.replace(/^(\d{3})(\d)/, "$1.$2");
+        v = v.replace(/^(\d{3})\.(\d{3})(\d)/, "$1.$2.$3");
+        v = v.replace(/^(\d{3})\.(\d{3})\.(\d{3})(\d)/, "$1.$2.$3-$4");
 
+        input.value = v;
+    });
+}
 
     /* =====================================================
        LOGIN — CPF, SENHA, LOADER, SESSÃO
     ===================================================== */
     const loginForm = document.getElementById("loginForm");
-    const cpfInput = document.getElementById("cpf");
+    const loginCpfInput = document.getElementById("cpf");
     const senhaInput = document.getElementById("senha");
     const toggleSenha = document.getElementById("toggleSenha");
     const btnLogin = document.getElementById("btnLogin");
@@ -146,14 +187,7 @@ if (userNameEl && userData) {
 
     if (loginForm) {
 
-        // CPF MASK
-        cpfInput.addEventListener("input", () => {
-            let v = cpfInput.value.replace(/\D/g, "").slice(0, 11);
-            v = v.replace(/^(\d{3})(\d)/, "$1.$2");
-            v = v.replace(/^(\d{3})\.(\d{3})(\d)/, "$1.$2.$3");
-            v = v.replace(/^(\d{3})\.(\d{3})\.(\d{3})(\d)/, "$1.$2.$3-$4");
-            cpfInput.value = v;
-        });
+        aplicarMascaraCPF(loginCpfInput);
 
         // LIMITE SENHA
         senhaInput.addEventListener("input", () => {
@@ -172,7 +206,7 @@ if (userNameEl && userData) {
             erroMsg.classList.remove("active");
             erroMsg.textContent = "";
 
-            if (cpfInput.value.length < 14 || senhaInput.value.length < 4) {
+            if (loginCpfInput.value.length < 14 || senhaInput.value.length < 4) {
                 erroMsg.textContent = "CPF ou senha inválidos";
                 erroMsg.classList.add("active");
                 return;
@@ -183,10 +217,13 @@ if (userNameEl && userData) {
 
             setTimeout(() => {
 
-            const userFound = FAKE_USERS.find(user =>
-                user.cpf === cpfInput.value &&
+            const allUsers = getAllUsers();
+
+            const userFound = allUsers.find(user =>
+                user.cpf === loginCpfInput.value &&
                 user.senha === senhaInput.value
             );
+
 
             if (userFound) {
                 localStorage.setItem("medplus-auth", "true");
@@ -213,6 +250,81 @@ if (userNameEl && userData) {
             window.location.href = "login.html";
         }
     }
+    /* =====================================================
+   PRIMEIRO ACESSO — REGISTRO FUNCIONAL
+===================================================== */
+
+const registerForm = document.getElementById("registerForm");
+const regErro = document.getElementById("registerErro");
+
+if (registerForm) {
+
+    const nomeInput = document.getElementById("regNome");
+    const idadeInput = document.getElementById("regIdade");
+    const cepInput = document.getElementById("regCep");
+    const regCpfInput = document.getElementById("regCpf");
+    const senhaInput = document.getElementById("regSenha");
+    const telInput = document.getElementById("regTelefone");
+
+    // LIMITE SENHA
+    senhaInput.addEventListener("input", () => {
+        senhaInput.value = senhaInput.value.slice(0, 8);
+    });
+
+    registerForm.addEventListener("submit", e => {
+        e.preventDefault();
+        regErro.textContent = "";
+
+        // VALIDAÇÕES
+        if (
+            !nomeInput.value ||
+            !idadeInput.value ||
+            !cepInput.value ||
+            !regCpfInput.value ||
+            !senhaInput.value ||
+            !telInput.value
+        ) {
+            regErro.textContent = "Preencha todos os campos";
+            return;
+        }
+
+        if (regCpfInput.value.length !== 14) {
+            regErro.textContent = "CPF inválido";
+            return;
+        }
+
+        if (senhaInput.value.length < 4 || senhaInput.value.length > 8) {
+            regErro.textContent = "Senha deve ter entre 4 e 8 caracteres";
+            return;
+        }
+
+        // VERIFICA SE CPF JÁ EXISTE
+        const users = JSON.parse(localStorage.getItem("medplus-users")) || [];
+
+        if (users.find(u => u.cpf === regCpfInput.value)) {
+            regErro.textContent = "CPF já cadastrado";
+            return;
+        }
+
+        // CRIA USUÁRIO
+        const newUser = {
+            cpf: regCpfInput.value,
+            senha: senhaInput.value,
+            nome: nomeInput.value,
+            consultas: []
+        };
+
+        users.push(newUser);
+        localStorage.setItem("medplus-users", JSON.stringify(users));
+
+        // LOGA AUTOMATICAMENTE
+        localStorage.setItem("medplus-auth", "true");
+        localStorage.setItem("medplus-user-cpf", newUser.cpf);
+
+        window.location.href = "consultas.html";
+    });
+}
+
 /* =====================================================
    RENDER CONSULTAS POR USUÁRIO
 ===================================================== */
@@ -222,8 +334,12 @@ if (window.location.pathname.includes("consultas.html")) {
     const userCpf = localStorage.getItem("medplus-user-cpf");
 if (!userCpf) return;
 
-const userData = FAKE_USERS.find(u => u.cpf === userCpf);
+const allUsers = getAllUsers();
+const userData = allUsers.find(u => u.cpf === userCpf);
 if (!userData) return;
+
+const userNameEl = document.getElementById("userName");
+    if (userNameEl) userNameEl.textContent = userData.nome;
 
 
     const agendadasEl = document.getElementById("consultasAgendadas");

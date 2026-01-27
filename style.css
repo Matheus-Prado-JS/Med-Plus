@@ -715,6 +715,114 @@ body.theme-colorful .especialidades-icons img {
         transform: rotate(360deg);
     }
 }
+/* =====================================================
+   ================== REGISTRO =========================
+   Estilos EXCLUSIVOS da tela de Primeiro Acesso
+   ===================================================== */
+
+.hidden {
+    display: none;
+}
+
+/* ===== CONTAINER ===== */
+.register-view {
+    margin-top: 10px;
+    animation: fadeSlide 0.45s ease;
+}
+
+/* ===== TÍTULO ===== */
+.register-view h2 {
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+    color: var(--text);
+}
+
+.register-sub {
+    font-size: 0.95rem;
+    opacity: 0.75;
+    margin-bottom: 18px;
+}
+
+/* ===== FORM ===== */
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* ===== INPUTS ===== */
+.register-form input {
+    padding: 13px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--input-bg);
+    color: var(--text);
+    font-size: 0.95rem;
+    transition: border 0.25s ease, box-shadow 0.25s ease;
+}
+
+.register-form input::placeholder {
+    opacity: 0.6;
+}
+
+.register-form input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.04);
+}
+
+/* ===== BOTÃO ===== */
+.register-form .btn-primary {
+    margin-top: 10px;
+    padding: 14px;
+    border-radius: 14px;
+    border: none;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+    );
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.register-form .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== FOOTER ===== */
+.register-view .login-footer {
+    margin-top: 18px;
+    text-align: center;
+}
+
+.register-view .login-footer a {
+    font-size: 0.9rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.register-view .login-footer a:hover {
+    text-decoration: underline;
+}
+
+/* ===== ANIMAÇÃO ===== */
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 /* =====================================================
    ================= CONSULTAS.HTML ====================
