@@ -1,217 +1,184 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Med+ | Agendamento de Consultas</title>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Med+</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- ================= HEADER ================= -->
-    <header class="header">
-        <div class="header-left">
-            <!-- Logo -->
-            <img src="assets/logo_medplus.png" alt="Logo do Hospital Med+" class="logo">
+  <!-- HEADER -->
+  <header>
+    <div class="container header">
+      <img src="assets/logo_medplus.png" alt="Med+" class="logo">
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Especialidades</a></li>
+          <li><a href="#">Médicos</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="actions">
+        <div id="userArea">
+        <button id="openModal" class="btn-primary">Entrar</button>
         </div>
+      </div>
+    </div>
+  </header>
 
-        <div class="header-center">
-            <!-- Intencionalmente vazio -->
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h2>Cuidando da sua saúde de forma simples</h2>
+        <p>Encontre médicos, agende consultas e cuide da sua saúde em poucos cliques.</p>
+        <button class="btn-primary">Agendar consulta</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUSCA -->
+  <section class="search">
+    <div class="container search-box">
+      <input type="text" placeholder="Especialidade ou médico">
+      <input type="text" placeholder="Localização">
+      <button class="btn-primary">Buscar</button>
+    </div>
+  </section>
+
+  <!-- ESPECIALIDADES -->
+  <section class="specialties">
+    <div class="container">
+      <h3>Especialidades</h3>
+      <div class="grid">
+        <div class="card">Cardiologia</div>
+        <div class="card">Dermatologia</div>
+        <div class="card">Pediatria</div>
+        <div class="card">Ortopedia</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉDICOS -->
+  <section class="doctors">
+    <div class="container">
+      <h3>Médicos em destaque</h3>
+      <div class="grid">
+        <div class="card">
+          <img src="assets/meds/Med1.png">
+          <h4>Dr. João Silva</h4>
+          <p>Cardiologista</p>
+          <button class="btn-outline">Ver perfil</button>
         </div>
+        <div class="card">
+          <img src="assets/meds/Med2.png">
+          <h4>Dra. Maria Souza</h4>
+          <p>Dermatologista</p>
+          <button class="btn-outline">Ver perfil</button>
+        </div>
+        <div class="card">
+          <img src="assets/meds/Med3.png">
+          <h4>Dr. Maurício Santos</h4>
+          <p>Pediatria</p>
+          <button class="btn-outline">Ver perfil</button>
+        </div>
+        <div class="card">
+          <img src="assets/meds/Med4.png">
+          <h4>Dra. Akemi Sato</h4>
+          <p>Ortopedia</p>
+          <button class="btn-outline">Ver perfil</button>
+        </div>
+        <div class="card">
+          <img src="assets/meds/Med5.png">
+          <h4>Dra. Priscilla</h4>
+          <p>Clínica Geral</p>
+          <button class="btn-outline">Ver perfil</button>
+        </div>
+        
+      </div>
+    </div>
+  </section>
 
-    <div class="header-right header-right-vertical">
+  <!-- COMO FUNCIONA -->
+  <section class="steps">
+    <div class="container">
+      <h3>Como funciona</h3>
+      <div class="grid">
+        <div class="card">1. Escolha um médico</div>
+        <div class="card">2. Selecione horário</div>
+        <div class="card">3. Faça sua consulta</div>
+      </div>
+    </div>
+  </section>
 
-    <button class="btn-minhas-consultas" id="btn-minhas-consultas">
-        Minhas Consultas
-    </button>
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2>Pronto para cuidar da sua saúde?</h2>
+      <button class="btn-primary">Agendar agora</button>
+    </div>
+  </section>
 
-    <!-- Seletor de Tema -->
-    <div class="theme-switcher theme-vertical">
-        <button class="theme-btn" data-theme="clean" title="Modo Clean">
-            <img src="assets/light_mode.png" alt="Modo Clean">
-        </button>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© 2026 Med+ - Todos os direitos reservados</p>
+    </div>
+  </footer>
 
-        <button class="theme-btn" data-theme="dark" title="Modo Dark">
-            <img src="assets/dark_mode.png" alt="Modo Dark">
-        </button>
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <h3>Entrar</h3>
 
-        <button class="theme-btn" data-theme="colorful" title="Modo Colorful">
-            <img src="assets/colorful_mode.png" alt="Modo Colorful">
-        </button>
+    <input type="text" placeholder="Nome de Usuário">
+    <input type="password" placeholder="Senha">
+
+    <p class="register-text">
+    Não tem conta? <span id="goRegister">Cadastre-se</span>
+    </p>
+
+    <div class="modal-buttons">
+      <button id="closeModal" class="btn-outline">Cancelar</button>
+      <button class="btn-primary">Entrar</button>
+    </div>
+  </div>
+</div>
+<!-- REGISTER MODAL -->
+<div id="registerModal" class="modal">
+  <div class="modal-content">
+    <h3>Cadastrar</h3>
+
+    <input id="regUser" type="text" placeholder="Nome de Usuário">
+    <input id="regPass" type="password" placeholder="Senha">
+    <input id="regConfirm" type="password" placeholder="Confirmar Senha">
+
+    <div class="modal-buttons">
+      <button id="closeRegister" class="btn-outline">Cancelar</button>
+      <button id="registerSubmit" class="btn-primary">Cadastrar</button>
+    </div>
+  </div>
+</div>
+<!-- SIDEBAR USUÁRIO -->
+<div id="userSidebar" class="sidebar">
+  <div class="sidebar-content">
+    <div class="sidebar-user">
+    <div id="sidebarAvatar" class="avatar"></div>
+    <h3 id="userName">Usuário</h3>
     </div>
 
+    <ul>
+      <li>Perfil</li>
+      <li>Agendas</li>
+      <li>Notificações</li>
+      <li id="logoutBtn">Sair</li>
+    </ul>
+  </div>
 </div>
 
+<script src="script.js"></script>
 
-    </header>
-
-    <!-- ================= MAIN ================= -->
-    <main>
-
-        <!-- ===== Banner / Carrossel ===== -->
-        <section class="banner">
-            <div class="carousel">
-
-                <div class="carousel-item">
-                    <img src="assets/Dermatologia.png" alt="Dermatologista">
-                    <h2>Dermatologia</h2>
-                </div>
-
-                <div class="carousel-item">
-                    <img src="assets/Oftalmologia.png" alt="Oftalmologista">
-                    <h2>Oftalmologia</h2>
-                </div>
-
-                <div class="carousel-item">
-                    <img src="assets/cardiologia.png" alt="Cardiologista">
-                    <h2>Cardiologia</h2>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- ===== ESPECIALIDADES (INTRO) ===== -->
-        <section class="especialidades-preview">
-
-         <h2>Veja nossas especialidades</h2>
-
-        <div class="especialidades-icons">
-        <img src="assets/Neurologista-icon.svg" alt="Neurologia">
-        <img src="assets/Cardiologista-icon.svg" alt="Cardiologia">
-        <img src="assets/Oncologia-icon.svg" alt="Oncologia">
-        </div>
-
-        <button class="btn-especialidades">
-            Ver Especialidades
-        </button>
-
-</section>
-
-
-        <!-- ===== Notícias ===== -->
-        <section class="noticias">
-            <h2>Notícias</h2>
-
-            <div class="noticias-grid">
-
-                <article class="noticia-card"
-                    data-title="Avanços na Medicina Preventiva"
-                    data-text="A medicina preventiva tem evoluído de forma significativa nos últimos anos, 
-                    tornando-se uma das principais aliadas na promoção da saúde e no aumento da qualidade de vida 
-                    da população. Com o avanço da tecnologia, exames mais precisos, acessíveis e menos invasivos 
-                    permitem a identificação precoce de doenças antes mesmo do surgimento de sintomas. 
-                    Investir em medicina preventiva não apenas reduz custos com tratamentos complexos, como também 
-                    proporciona maior bem-estar ao paciente, que passa a ter um acompanhamento mais próximo e 
-                    consciente da própria saúde."
-                    data-img="assets/noticia-avanços.jpg"
-                >
-                <h3>Avanços na Medicina Preventiva</h3>
-                <p>A prevenção é o primeiro passo para uma vida mais saudável.</p>
-                <span>Prevenção</span>
-                </article>
-
-                <article class="noticia-card"
-                    data-title="Importância do Check-up Anual"
-                    data-text="O check-up anual é uma das formas mais eficazes de cuidar da saúde de maneira preventiva. 
-                    Por meio de exames laboratoriais, avaliações clínicas e consultas especializadas, é possível 
-                    identificar alterações no organismo ainda em estágios iniciais, aumentando significativamente as 
-                    chances de tratamento bem-sucedido. Além do aspecto físico, o check-up também contribui para a saúde 
-                    mental, ajudando a detectar sinais de estresse, ansiedade e outros transtornos que impactam 
-                    diretamente a qualidade de vida. Manter os exames em dia é um ato de cuidado."
-                    data-img="assets/noticia-checkup.jpg"
-                >
-                <h3>Importância do Check-up Anual</h3>
-                <p>Exames em dia ajudam a evitar problemas no futuro.</p>
-                <span>Check-up</span>
-                </article>
-
-                <article class="noticia-card"
-                    data-title="Cuidados com a visão"
-                    data-text="A saúde ocular é fundamental para o bem-estar e para a realização das atividades do 
-                    dia a dia. Com o aumento do uso de telas — celulares, computadores e televisões —, problemas como 
-                    fadiga ocular, ressecamento dos olhos e dificuldades de foco tornaram-se cada vez mais comuns. 
-                    Consultas regulares com o oftalmologista permitem a detecção precoce de condições como miopia, 
-                    astigmatismo, glaucoma e catarata. Além das consultas, hábitos simples fazem grande diferença: 
-                    pausas regulares durante o uso de telas, boa iluminação nos ambientes, uso de óculos adequados 
-                    e proteção contra raios solares. Cuidar da visão é preservar autonomia. "
-                    data-img="assets/noticia-visão.webp"
-                >
-                <h3>Cuidados com a visão</h3>
-                <p>Ver bem é essencial para viver com qualidade.</p>
-                <span>Oftalmologia</span>
-                </article>
-
-                <article class="noticia-card"
-                    data-title="Alimentação e Saúde do Coração"
-                    data-text="Uma alimentação equilibrada exerce papel fundamental na saúde do coração e na prevenção 
-                    de doenças cardiovasculares. Dietas ricas em frutas, legumes, verduras, grãos integrais e gorduras 
-                    boas ajudam a controlar níveis de colesterol, pressão arterial e glicose no sangue. Por outro lado, 
-                    o consumo excessivo de alimentos ultraprocessados, ricos em sal, açúcar e gorduras saturadas, está 
-                    diretamente associado ao aumento do risco de infarto, AVC e outras complicações cardíacas. 
-                    Aliar uma boa alimentação à prática regular de atividades físicas, controle do estresse e 
-                    acompanhamento médico periódico forma a base para um coração mais saudável."
-                    data-img="assets/noticia-cardiologia.webp"
-                >
-                <h3>Alimentação e Saúde do Coração</h3>
-                <p>Uma dieta equilibrada pode reduzir riscos cardiovasculares.</p>
-                <span>Cardiologia</span>
-                </article>
-
-
-            </div>
-        </section>
-
-        <!-- ===== Sobre o Med+ ===== -->
-        <section class="sobre">
-            <h2>Sobre o Med+</h2>
-
-            <p>
-                O <strong>Med+</strong> nasceu com o propósito de facilitar o acesso à saúde de qualidade.
-                Com uma equipe de profissionais altamente capacitados e tecnologia de ponta,
-                oferecemos um atendimento humanizado, ágil e eficiente.
-            </p>
-
-            <p>
-                Nosso compromisso é cuidar das pessoas em todas as fases da vida,
-                promovendo bem-estar, prevenção e confiança em cada atendimento.
-            </p>
-        </section>
-
-    </main>
-
-    <!-- ================= FOOTER ================= -->
-    <footer class="footer">
-        <div class="footer-info">
-            <p><strong>Med+</strong> - Hospital Fictício</p>
-            <p>Endereço: Rua Exemplo, 123 - Cidade Fictícia</p>
-            <p>Telefone: (00) 0000-0000</p>
-            <p>Email: contato@medplus.com</p>
-        </div>
-
-        <div class="footer-copy">
-            <p>© 2026 - Projeto Fictício para fins educacionais</p>
-        </div>
-    </footer>
-
-    <!-- ===== MODAL NOTÍCIA ===== -->
-<div class="modal-overlay" id="modalNoticia">
-    <div class="modal-noticia">
-        <button class="modal-close" id="closeModal">×</button>
-
-        <div class="modal-content">
-            <img src="" alt="Imagem da notícia" class="modal-img">
-
-            <div class="modal-text">
-                <h2 class="modal-title"></h2>
-                <p class="modal-body"></p>
-            </div>
-        </div>
-    </div>
-</div>
-
-    <!-- JavaScript -->
-    <script src="script.js"></script>
 </body>
 </html>
