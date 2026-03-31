@@ -1,0 +1,134 @@
+body {
+  font-family: Arial;
+  background: #f5f7fa;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.logo {
+  height: 40px;
+}
+
+
+.especialidades-page {
+  padding: 50px;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 🔥 4 por linha */
+  gap: 20px;
+}
+
+.card {
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.especialidade-card {
+  cursor: pointer;
+}
+
+/* conteúdo escondido */
+.especialidade-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.4s ease;
+}
+
+/* quando ativo */
+.especialidade-card.active .especialidade-content {
+  max-height: 500px;
+  margin-top: 15px;
+}
+
+.esp-title {
+  margin-bottom: 10px; /* 🔥 espaço abaixo */
+  align-self: center; /* 🔥 centraliza horizontalmente */
+
+  transform: translateY(-10px); /* 🔥 sobe sem quebrar layout */
+}
+.info-row {
+  display: flex;
+  gap: 30px; /* 🔥 espaço horizontal entre eles */
+
+  margin-top: 5px;  /* 🔥 desce ou sobe o bloco */
+  margin-bottom: 5px;
+}
+.esp-desc {
+  margin-top: 30px;   /* 🔥 distância do bloco acima */
+  margin-bottom: 20px; /* 🔥 distância do botão */
+
+  line-height: 1.6;
+  
+}
+/* 🔥 BLOCO EXPANSÍVEL */
+.especialidade-detalhe {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.3s ease;
+  grid-column: span 4;
+}
+
+.especialidade-detalhe.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* animação interna suave */
+.fade-in {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* layout interno */
+.especialidade-box {
+  display: flex;
+  gap: 30px;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+
+  align-items: flex-start;
+  position: relative; /* 🔥 ESSENCIAL */
+}
+
+/* imagem */
+.especialidade-box img {
+  width: 150px;
+  border-radius: 10px;
+}
+
+/* texto */
+.especialidade-info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+  padding-bottom: 60px;
+}
+.btn-agendar {
+  position: absolute;
+
+  bottom: 20px; /* 🔥 distância do fundo */
+  right: 20px;  /* 🔥 distância da direita */
+}

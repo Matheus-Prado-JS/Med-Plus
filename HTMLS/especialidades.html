@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Especialidades - Med+</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../CSS/med-especialidades.css">
+</head>
+<body>
+
+<header>
+  <div class="container header">
+    <img src="../assets/logo_medplus.png" alt="Med+" class="logo">
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="especialidades.html">Especialidades</a></li>
+        <li><a href="#">Agendar</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="actions">
+      <div id="userArea">
+        <button id="openModal" class="btn-primary">Entrar</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="especialidades-page">
+  <h2>Especialidades Médicas</h2>
+<div class="grid">
+  <div class="card" data-esp="cardio">Cardiologia</div>
+  <div class="card" data-esp="derma">Dermatologia</div>
+  <div class="card" data-esp="pedi">Pediatria</div>
+  <div class="card" data-esp="orto">Ortopedia</div>
+
+  <div class="card" data-esp="neuro">Neurologia</div>
+  <div class="card" data-esp="gine">Ginecologia</div>
+  <div class="card" data-esp="psiq">Psiquiatria</div>
+  <div class="card" data-esp="oftal">Oftalmologia</div>
+
+  <div class="card" data-esp="onco">Oncologia</div>
+  <div class="card" data-esp="endoc">Endocrinologia</div>
+  <div class="card" data-esp="cli">Clínico Geral</div>
+  <div class="card" data-esp="gastro">Gastroenterologia</div>
+</div>
+</section>
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <h3>Entrar</h3>
+
+    <input type="text" placeholder="Nome de Usuário">
+    <input type="password" placeholder="Senha">
+
+    <p class="register-text">
+      Não tem conta? <span id="goRegister">Cadastre-se</span>
+    </p>
+
+    <div class="modal-buttons">
+      <button id="closeModal" class="btn-outline">Cancelar</button>
+      <button class="btn-primary">Entrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- REGISTER MODAL -->
+<div id="registerModal" class="modal">
+  <div class="modal-content">
+    <h3>Cadastrar</h3>
+
+    <input id="regUser" type="text" placeholder="Nome de Usuário">
+    <input id="regPass" type="password" placeholder="Senha">
+    <input id="regConfirm" type="password" placeholder="Confirmar Senha">
+
+    <div class="modal-buttons">
+      <button id="closeRegister" class="btn-outline">Cancelar</button>
+      <button id="registerSubmit" class="btn-primary">Cadastrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- SIDEBAR -->
+<div id="userSidebar" class="sidebar">
+  <div class="sidebar-content">
+    <div class="sidebar-user">
+      <div id="sidebarAvatar" class="avatar"></div>
+      <h3 id="userName">Usuário</h3>
+    </div>
+
+    <ul>
+      <li>Perfil</li>
+      <li>Agendas</li>
+      <li>Notificações</li>
+      <li id="logoutBtn">Sair</li>
+    </ul>
+  </div>
+</div>
+<script src="../script.js"></script>
+<script src="../SCRIPTS/med-especialidades.js"></script>
+
+</body>
+</html>
