@@ -2,9 +2,9 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Especialidades - Med+</title>
+  <title>Agendamentos - Med+</title>
   <link rel="stylesheet" href="../style.css">
-  <link rel="stylesheet" href="../CSS/med-especialidades.css">
+  <link rel="stylesheet" href="../CSS/med-agendas.css">
 </head>
 <body>
 
@@ -14,7 +14,7 @@
     <nav>
       <ul>
         <li><a href="../index.html">Home</a></li>
-        <li><a href="especialidades.html">Especialidades</a></li>
+        <li><a href="../especialidades.html">Especialidades</a></li>
         <li><a href="agendas.html">Agendar</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
@@ -28,24 +28,75 @@
   </div>
 </header>
 
-<section class="especialidades-page">
-  <h2>Especialidades Médicas</h2>
-<div class="grid">
-  <div class="card" data-esp="cardio">Cardiologia</div>
-  <div class="card" data-esp="derma">Dermatologia</div>
-  <div class="card" data-esp="pedi">Pediatria</div>
-  <div class="card" data-esp="orto">Ortopedia</div>
+<section class="agenda-page">
+  <div class="container">
 
-  <div class="card" data-esp="neuro">Neurologia</div>
-  <div class="card" data-esp="gine">Ginecologia</div>
-  <div class="card" data-esp="psiq">Psiquiatria</div>
-  <div class="card" data-esp="oftal">Oftalmologia</div>
+    <h2>Agendar Consulta</h2>
 
-  <div class="card" data-esp="onco">Oncologia</div>
-  <div class="card" data-esp="endoc">Endocrinologia</div>
-  <div class="card" data-esp="cli">Clínico Geral</div>
-  <div class="card" data-esp="gastro">Gastroenterologia</div>
-</div>
+    <div class="agenda-box">
+
+      <!-- ESPECIALIDADE -->
+      <div class="select-box">
+        <div class="select-header">Especialidade</div>
+        <ul class="select-options" id="especialidadeOptions">
+          <li data-value="cardio">Cardiologia</li>
+          <li data-value="derma">Dermatologia</li>
+          <li data-value="pedi">Pediatria</li>
+            <li data-value="orto">Ortopedia</li>
+          <li data-value="neuro">Neurologia</li>
+          <li data-value="gine">Ginecologia</li>
+            <li data-value="psiq">Psiquiatria</li>
+          <li data-value="oftal">Oftalmologia</li>
+          <li data-value="onco">Oncologia</li>
+            <li data-value="endoc">Endocrinologia</li>
+          <li data-value="cli">Clínica Geral</li>
+          <li data-value="gastro">Gastroenterologia</li>
+        </ul>
+      </div>
+
+      <!-- MÉDICO -->
+      <div class="select-box">
+        <div class="select-header">Médico</div>
+        <ul class="select-options" id="medicoOptions"></ul>
+      </div>
+
+      <!-- LOCAL -->
+      <div class="select-box">
+        <div class="select-header">Local</div>
+        <ul class="select-options" id="localOptions"></ul>
+      </div>
+
+      <!-- HORÁRIOS -->
+      <div class="horarios">
+        <h3>Horários disponíveis</h3>
+        <div class="horarios-list" id="horariosList"></div>
+      </div>
+
+      <!-- CALENDÁRIO -->
+        <div class="calendario">
+        <div class="cal-header">
+            <button id="prevMonth">◀</button>
+            <h3 id="calMonth">Abril 2026</h3>
+            <button id="nextMonth">▶</button>
+        </div>
+
+        <div class="cal-days">
+            <span>Dom</span>
+            <span>Seg</span>
+            <span>Ter</span>
+            <span>Qua</span>
+            <span>Qui</span>
+            <span>Sex</span>
+            <span>Sáb</span>
+        </div>
+
+        <div class="cal-grid" id="calGrid"></div>
+        </div>
+
+      <button class="btn-primary btn-confirmar">Confirmar Agendamento</button>
+
+    </div>
+  </div>
 </section>
 
   <!-- CTA -->
@@ -116,6 +167,6 @@
 </div>
 <script src="../script.js"></script>
 <script src="../SCRIPTS/med-especialidades.js"></script>
-
+<script src="../SCRIPTS/med-agendas.js"></script>
 </body>
 </html>

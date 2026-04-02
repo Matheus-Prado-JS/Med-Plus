@@ -1,0 +1,188 @@
+.agenda-page {
+  padding: 50px;
+  text-align: center; /* 🔥 centraliza título */
+}
+
+.agenda-page h2 {
+  margin-bottom: 30px;
+}
+
+/* BOX */
+.agenda-box {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* SELECT CUSTOM */
+.select-box {
+  position: relative;
+  cursor: pointer;
+}
+
+.select-header {
+  padding: 15px;
+  background: #f5f7fa;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+/* 🔥 hover header */
+.select-header:hover {
+  background: #e6f0ff;
+}
+
+/* dropdown */
+.select-options {
+  display: none;
+  list-style: none;
+  padding: 5px 0;
+  margin: 5px 0 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  overflow: hidden;
+}
+
+/* itens */
+.select-options li {
+  padding: 12px;
+  transition: 0.2s;
+}
+
+/* 🔥 hover bonito */
+.select-options li:hover {
+  background: #007bff;
+  color: white;
+}
+
+/* ativo */
+.select-box.active .select-options {
+  display: block;
+}
+
+/* HORÁRIOS */
+.horarios-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.horario {
+  padding: 10px 15px;
+  background: #f0f0f0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* 🔥 hover */
+.horario:hover {
+  background: #e6f0ff;
+}
+
+/* selecionado */
+.horario.active {
+  background: #007bff;
+  color: white;
+}
+
+/* BOTÃO */
+.btn-confirmar {
+  margin-top: 20px;
+  transition: 0.2s;
+}
+
+/* 🔥 botão hover */
+.btn-confirmar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* CALENDÁRIO */
+.calendario {
+  background: #f9fbff;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.cal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.cal-header button {
+  background: #e6f0ff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* 🔥 hover mês */
+.cal-header button:hover {
+  background: #007bff;
+  color: white;
+}
+
+/* dias da semana */
+.cal-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.cal-days span {
+  text-align: center;
+}
+
+/* grid */
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+/* dia */
+.cal-day {
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* 🔥 hover dia */
+.cal-day:hover {
+  background: #e6f0ff;
+}
+
+/* desabilitado */
+.cal-day.disabled {
+  color: #ccc;
+  pointer-events: none;
+}
+
+/* selecionado */
+.cal-day.selected {
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+}
