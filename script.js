@@ -145,4 +145,13 @@ logoutBtn.addEventListener("click", () => {
   sidebar.classList.remove("active");
   renderUser();
 });
+
+const goAgendas = document.getElementById("goAgendas");
+
+if (goAgendas) {
+  goAgendas.addEventListener("click", () => {
+    window.location.href = "../HTMLS/marcadas.html";
+  });
+}
+
 renderUser();

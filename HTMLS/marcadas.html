@@ -2,66 +2,42 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Especialidades - Med+</title>
+  <title>Minhas Agendas - Med+</title>
   <link rel="stylesheet" href="../style.css">
-  <link rel="stylesheet" href="../CSS/med-especialidades.css">
+  <link rel="stylesheet" href="../CSS/marcadas.css">
 </head>
 <body>
 
 <header>
   <div class="container header">
-    <img src="../assets/logo_medplus.png" alt="Med+" class="logo">
+    <img src="../assets/logo_medplus.png" class="logo">
+
     <nav>
       <ul>
         <li><a href="../index.html">Home</a></li>
         <li><a href="especialidades.html">Especialidades</a></li>
         <li><a href="agendas.html">Agendar</a></li>
-        <li><a href="#contato">Contato</a></li>
+        <li><a href="../index.html#contato">Contato</a></li>
       </ul>
     </nav>
 
-    <div class="actions">
-      <div id="userArea">
-        <button id="openModal" class="btn-primary">Entrar</button>
-      </div>
-    </div>
+<div class="actions">
+  <div id="userArea">
+    <button id="openModal" class="btn-primary">Entrar</button>
+  </div>
+</div>
   </div>
 </header>
 
-<section class="especialidades-page">
-  <h2>Especialidades Médicas</h2>
-<div class="grid">
-  <div class="card" data-esp="cardio">Cardiologia</div>
-  <div class="card" data-esp="derma">Dermatologia</div>
-  <div class="card" data-esp="pedi">Pediatria</div>
-  <div class="card" data-esp="orto">Ortopedia</div>
+<section class="marcadas-page">
+  <div class="container">
 
-  <div class="card" data-esp="neuro">Neurologia</div>
-  <div class="card" data-esp="gine">Ginecologia</div>
-  <div class="card" data-esp="psiq">Psiquiatria</div>
-  <div class="card" data-esp="oftal">Oftalmologia</div>
+    <h2 id="welcomeText">Bem-vindo</h2>
 
-  <div class="card" data-esp="onco">Oncologia</div>
-  <div class="card" data-esp="endoc">Endocrinologia</div>
-  <div class="card" data-esp="cli">Clínico Geral</div>
-  <div class="card" data-esp="gastro">Gastroenterologia</div>
-</div>
+    <div id="agendamentosList" class="agendamentos-grid"></div>
+
+  </div>
 </section>
-
-  <!-- CTA -->
-  <section class="cta" id="contato">
-    <div class="container">
-      <h2>Pronto para cuidar da sua saúde?</h2>
-      <h3>Entre em contato conosco!</h3>
-      <h4>(11) 1234-5678 ou contato@medplus.com</h4>
-    </div>
-  </section>
-    <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <p>© 2026 Med+ - Todos os direitos reservados</p>
-    </div>
-  </footer>
 
 <!-- LOGIN MODAL -->
 <div id="loginModal" class="modal">
@@ -72,7 +48,7 @@
     <input type="password" placeholder="Senha">
 
     <p class="register-text">
-      Não tem conta? <span id="goRegister">Cadastre-se</span>
+    Não tem conta? <span id="goRegister">Cadastre-se</span>
     </p>
 
     <div class="modal-buttons">
@@ -81,7 +57,6 @@
     </div>
   </div>
 </div>
-
 <!-- REGISTER MODAL -->
 <div id="registerModal" class="modal">
   <div class="modal-content">
@@ -97,7 +72,6 @@
     </div>
   </div>
 </div>
-
 <!-- SIDEBAR -->
 <div id="userSidebar" class="sidebar">
   <div class="sidebar-content">
@@ -114,8 +88,9 @@
     </ul>
   </div>
 </div>
+
 <script src="../script.js"></script>
-<script src="../SCRIPTS/med-especialidades.js"></script>
+<script src="../SCRIPTS/marcadas.js"></script>
 
 </body>
 </html>

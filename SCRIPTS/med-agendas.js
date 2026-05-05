@@ -215,7 +215,51 @@ horarios.forEach(h => {
 
 // CONFIRMAR
 document.querySelector(".btn-confirmar").addEventListener("click", () => {
-  alert("Agendamento realizado (mock)");
+
+  const especialidade = document.querySelector("#especialidadeOptions")
+    .closest(".select-box")
+    .querySelector(".select-header").textContent;
+
+  const medico = document.querySelector("#medicoOptions")
+    .closest(".select-box")
+    .querySelector(".select-header").textContent;
+
+  const hospital = document.querySelector("#localOptions")
+    .closest(".select-box")
+    .querySelector(".select-header").textContent;
+
+  const horario = document.querySelector(".horario.active")?.textContent;
+
+  if (!diaSelecionado) {
+  alert("Selecione uma data!");
+  return;
+}
+
+const dia = String(diaSelecionado.getDate()).padStart(2, "0");
+const mes = String(diaSelecionado.getMonth() + 1).padStart(2, "0");
+
+const dataFormatada = `${dia}/${mes}`;
+
+if (!especialidade || !medico || !hospital || !horario || !diaSelecionado) {
+  alert("Preencha tudo!");
+  return;
+}
+
+  const agendamento = {
+    especialidade,
+    medico,
+    hospital,
+    horario,
+    data: dataFormatada
+  };
+
+  let lista = JSON.parse(localStorage.getItem("medplus_agendamentos")) || [];
+
+  lista.push(agendamento);
+
+  localStorage.setItem("medplus_agendamentos", JSON.stringify(lista));
+
+  alert("Agendamento realizado!");
 });
 
 const calGrid = document.getElementById("calGrid");
