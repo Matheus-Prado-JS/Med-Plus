@@ -54,8 +54,8 @@ const profileAvatar =
 
     img.src =
       avatarType === "male"
-        ? "/assets/Perfil-B.png"
-        : "/assets/Perfil-A.png";
+        ? "assets/Perfil-B.png"
+        : "assets/Perfil-A.png";
 
     profileAvatar.appendChild(img);
   }

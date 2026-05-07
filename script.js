@@ -106,6 +106,7 @@ userArea.innerHTML = `
 // avatar na sidebar
 if (sidebarAvatar) {
 
+
   sidebarAvatar.innerHTML = "";
 
   const avatarHTML =
@@ -166,7 +167,7 @@ const goAgendas = document.getElementById("goAgendas");
 
 if (goAgendas) {
   goAgendas.addEventListener("click", () => {
-    window.location.href = "../HTMLS/marcadas.html";
+    window.location.href = "HTMLS/marcadas.html";
   });
 }
 
@@ -203,7 +204,7 @@ function generateAvatarHTML(user, className = "avatar") {
         style="background:${avatarColor}"
       >
         <img
-          src="/assets/Perfil-B.png"
+          src="assets/Perfil-B.png"
           class="avatar-image"
         >
       </div>
@@ -219,7 +220,7 @@ function generateAvatarHTML(user, className = "avatar") {
         style="background:${avatarColor}"
       >
         <img
-          src="/assets/Perfil-A.png"
+          src="assets/Perfil-A.png"
           class="avatar-image"
         >
       </div>
