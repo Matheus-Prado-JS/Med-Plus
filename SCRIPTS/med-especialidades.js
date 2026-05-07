@@ -144,5 +144,11 @@ cards.forEach((card, index) => {
     const refCard = cards[ultimoIndexDaLinha];
 
     refCard.after(detalhe);
+
+const btnAgendar = detalhe.querySelector(".btn-agendar");
+
+btnAgendar.addEventListener("click", () => {
+  window.location.href = "agendas.html";
+});
   });
 });

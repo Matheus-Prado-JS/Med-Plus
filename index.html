@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Med+</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/CSS/perfil.css">
 </head>
 <body>
 
@@ -34,17 +35,8 @@
       <div class="hero-text">
         <h2>Cuidando da sua saúde de forma simples</h2>
         <p>Encontre médicos, agende consultas e cuide da sua saúde em poucos cliques.</p>
-        <a href="HTMLS/especialidades.html" class="btn-primary">Agendar</a>
+        <a href="HTMLS/agendas.html" class="btn-primary">Agendar</a>
       </div>
-    </div>
-  </section>
-
-  <!-- BUSCA -->
-  <section class="search">
-    <div class="container search-box">
-      <input type="text" placeholder="Especialidade ou médico">
-      <input type="text" placeholder="Localização">
-      <button class="btn-primary">Buscar</button>
     </div>
   </section>
 
@@ -101,9 +93,6 @@
         </div>
         
       </div>
-      <div style="text-align: center; margin-top: 20px;">
-        <button class="btn-primary">Ver mais</button>
-        </div>
     </div>
   </section>
 
@@ -168,6 +157,105 @@
     </div>
   </div>
 </div>
+<!-- PROFILE MODAL -->
+<div id="profileModal" class="profile-modal">
+
+  <div class="profile-content">
+
+    <h2>Meu Perfil</h2>
+
+    <div class="profile-top">
+
+      <div class="profile-avatar-wrapper">
+
+      <div id="profileAvatar" class="profile-avatar">
+        U
+      </div>
+
+      <div class="avatar-overlay">
+        ✎
+      </div>
+
+    </div>
+
+      <div class="profile-fields">
+
+        <input
+          type="text"
+          id="profileName"
+          placeholder="Nome"
+        >
+
+        <input
+          type="text"
+          id="profileLastName"
+          placeholder="Sobrenome"
+        >
+
+      </div>
+
+    </div>
+
+    <div id="avatarEditor" class="avatar-editor">
+
+  <h3>Personalizar Avatar</h3>
+
+  <div class="avatar-types">
+
+    <button
+      class="avatar-option"
+      data-avatar="initial"
+    >
+      Inicial
+    </button>
+
+    <button
+      class="avatar-option"
+      data-avatar="male"
+    >
+      Masculino
+    </button>
+
+    <button
+      class="avatar-option"
+      data-avatar="female"
+    >
+      Feminino
+    </button>
+
+  </div>
+
+  <div class="avatar-colors">
+
+    <div class="color-option" data-color="#2a7fff"></div>
+
+    <div class="color-option" data-color="#ff4d6d"></div>
+
+    <div class="color-option" data-color="#8b5cf6"></div>
+
+    <div class="color-option" data-color="#10b981"></div>
+
+    <div class="color-option" data-color="#f59e0b"></div>
+
+    <div class="color-option" data-color="#111827"></div>
+
+  </div>
+
+</div>
+
+    <div class="profile-buttons">
+      <button id="cancelProfile" class="btn-outline">
+        Cancelar
+      </button>
+
+      <button id="saveProfile" class="btn-primary">
+        Salvar
+      </button>
+    </div>
+
+  </div>
+
+</div>
 <!-- SIDEBAR USUÁRIO -->
 <div id="userSidebar" class="sidebar">
   <div class="sidebar-content">
@@ -176,16 +264,29 @@
     <h3 id="userName">Usuário</h3>
     </div>
 
-    <ul>
-      <li>Perfil</li>
+    <ul id="sidebarMenu">
+      <li id="openProfile">Perfil</li>
       <li id="goAgendas">Agendas</li>
-      <li>Notificações</li>
+      <li id="openNotifications">
+        Notificações
+        <span id="notificationBadge" class="notification-badge">0</span>
+      </li>
       <li id="logoutBtn">Sair</li>
     </ul>
+
+    <div id="notificationsPanel" class="notifications-panel">
+  <div class="notifications-header">
+    <button id="backSidebar">← Voltar</button>
+      <button id="clearNotifications">Limpar</button>
+  </div>
+
+  <div id="notificationsList"></div>
+</div>
   </div>
 </div>
 
 <script src="script.js"></script>
+<script src="/SCRIPTS/perfil.js"></script>
 
 </body>
 </html>

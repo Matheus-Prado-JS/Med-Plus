@@ -94,27 +94,42 @@ function renderUser() {
   const sidebarAvatar = document.getElementById("sidebarAvatar");
 
   if (user) {
-    const initial = user.username.charAt(0).toUpperCase();
-
-    // avatar no header
-    userArea.innerHTML = `
-      <div id="avatar" class="avatar">
-        ${initial}
-      </div>
-    `;
+userArea.innerHTML = `
+  <div id="avatarContainer">
+    ${generateAvatarHTML(user)}
+  </div>
+`;
 
     // nome na sidebar
     userNameDisplay.textContent = user.username;
 
-    // avatar na sidebar
-    if (sidebarAvatar) {
-      sidebarAvatar.textContent = initial;
-    }
+// avatar na sidebar
+if (sidebarAvatar) {
+
+  sidebarAvatar.innerHTML = "";
+
+  const avatarHTML =
+    generateAvatarHTML(user);
+
+  sidebarAvatar.outerHTML =
+    avatarHTML.replace(
+      'class="avatar"',
+      'id="sidebarAvatar" class="avatar"'
+    );
+}
 
     // abrir sidebar
-    document.getElementById("avatar").addEventListener("click", () => {
-      sidebar.classList.toggle("active");
-    });
+const avatarContainer =
+  document.getElementById("avatarContainer");
+
+if (avatarContainer) {
+
+  avatarContainer.addEventListener("click", () => {
+
+    sidebar.classList.toggle("active");
+
+  });
+}
 
   } else {
     // botão entrar
@@ -132,7 +147,8 @@ function renderUser() {
 }
 document.addEventListener("click", (e) => {
   const isClickInsideSidebar = sidebar.contains(e.target);
-  const isAvatar = e.target.id === "avatar";
+  const isAvatar =
+  e.target.closest("#avatarContainer");
 
   if (!isClickInsideSidebar && !isAvatar) {
     sidebar.classList.remove("active");
@@ -154,4 +170,159 @@ if (goAgendas) {
   });
 }
 
+function generateAvatarHTML(user, className = "avatar") {
+
+  const avatarType =
+    user.avatarType || "initial";
+
+  const avatarColor =
+    user.avatarColor || "#2a7fff";
+
+  const initial =
+    user.username.charAt(0).toUpperCase();
+
+  // AVATAR COM INICIAL
+  if (avatarType === "initial") {
+
+    return `
+      <div
+        class="${className}"
+        style="background:${avatarColor}"
+      >
+        ${initial}
+      </div>
+    `;
+  }
+
+  // AVATAR MASCULINO
+  if (avatarType === "male") {
+
+    return `
+      <div
+        class="${className}"
+        style="background:${avatarColor}"
+      >
+        <img
+          src="/assets/Perfil-B.png"
+          class="avatar-image"
+        >
+      </div>
+    `;
+  }
+
+  // AVATAR FEMININO
+  if (avatarType === "female") {
+
+    return `
+      <div
+        class="${className}"
+        style="background:${avatarColor}"
+      >
+        <img
+          src="/assets/Perfil-A.png"
+          class="avatar-image"
+        >
+      </div>
+    `;
+  }
+}
+
 renderUser();
+
+
+
+const openNotifications = document.getElementById("openNotifications");
+const notificationsPanel = document.getElementById("notificationsPanel");
+const sidebarMenu = document.getElementById("sidebarMenu");
+const backSidebar = document.getElementById("backSidebar");
+const notificationsList = document.getElementById("notificationsList");
+const notificationBadge = document.getElementById("notificationBadge");
+const clearNotifications = document.getElementById("clearNotifications");
+
+function renderNotifications() {
+
+  const notifications =
+    JSON.parse(localStorage.getItem("medplus_notifications")) || [];
+
+  notificationsList.innerHTML = "";
+
+  if (notifications.length === 0) {
+
+    notificationsList.innerHTML =
+      "<p>Nenhuma notificação.</p>";
+  }
+
+  notifications.forEach(not => {
+
+    const div = document.createElement("div");
+
+    div.classList.add("notification-item");
+
+    div.innerHTML = `
+      <p>${not.message}</p>
+    `;
+
+    notificationsList.appendChild(div);
+  });
+
+  // contar não lidas
+  const unreadCount =
+    notifications.filter(not => !not.read).length;
+
+  // 🔥 se não tiver notificações
+  if (unreadCount <= 0) {
+
+    notificationBadge.style.display = "none";
+    notificationBadge.textContent = "";
+
+  } else {
+
+    notificationBadge.style.display = "inline-flex";
+    notificationBadge.textContent = unreadCount;
+  }
+}
+
+openNotifications.addEventListener("click", () => {
+
+  sidebarMenu.style.display = "none";
+
+  notificationsPanel.classList.add("active");
+
+  // 🔥 pegar notificações
+  let notifications =
+    JSON.parse(localStorage.getItem("medplus_notifications")) || [];
+
+  // 🔥 marcar todas como lidas
+  notifications = notifications.map(not => ({
+    ...not,
+    read: true
+  }));
+
+  // 🔥 salvar novamente
+  localStorage.setItem(
+    "medplus_notifications",
+    JSON.stringify(notifications)
+  );
+
+  renderNotifications();
+});
+
+backSidebar.addEventListener("click", () => {
+
+  notificationsPanel.classList.remove("active");
+
+  sidebarMenu.style.display = "block";
+});
+
+clearNotifications.addEventListener("click", () => {
+
+  const confirmar = confirm(
+    "Deseja limpar todas as notificações?"
+  );
+
+  if (!confirmar) return;
+
+  localStorage.removeItem("medplus_notifications");
+
+  renderNotifications();
+});

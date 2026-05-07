@@ -257,6 +257,19 @@ if (!especialidade || !medico || !hospital || !horario || !diaSelecionado) {
 
   lista.push(agendamento);
 
+  let notifications =
+  JSON.parse(localStorage.getItem("medplus_notifications")) || [];
+
+notifications.push({
+  message: `Sua consulta de ${especialidade} foi marcada.`,
+  read: false
+});
+
+localStorage.setItem(
+  "medplus_notifications",
+  JSON.stringify(notifications)
+);
+
   localStorage.setItem("medplus_agendamentos", JSON.stringify(lista));
 
   alert("Agendamento realizado!");

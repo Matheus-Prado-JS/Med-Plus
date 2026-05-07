@@ -5,6 +5,7 @@
   <title>Minhas Agendas - Med+</title>
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../CSS/marcadas.css">
+  <link rel="stylesheet" href="../CSS/perfil.css">
 </head>
 <body>
 
@@ -72,25 +73,37 @@
     </div>
   </div>
 </div>
-<!-- SIDEBAR -->
+
+<!-- SIDEBAR USUÁRIO -->
 <div id="userSidebar" class="sidebar">
   <div class="sidebar-content">
     <div class="sidebar-user">
-      <div id="sidebarAvatar" class="avatar"></div>
-      <h3 id="userName">Usuário</h3>
+    <div id="sidebarAvatar" class="avatar"></div>
+    <h3 id="userName">Usuário</h3>
     </div>
 
-    <ul>
+    <ul id="sidebarMenu">
       <li>Perfil</li>
       <li id="goAgendas">Agendas</li>
-      <li>Notificações</li>
+      <li id="openNotifications">
+        Notificações
+        <span id="notificationBadge" class="notification-badge">0</span>
+      </li>
       <li id="logoutBtn">Sair</li>
     </ul>
+
+    <div id="notificationsPanel" class="notifications-panel">
+  <div class="notifications-header">
+    <button id="backSidebar">← Voltar</button>
+  </div>
+
+  <div id="notificationsList"></div>
+</div>
   </div>
 </div>
 
 <script src="../script.js"></script>
 <script src="../SCRIPTS/marcadas.js"></script>
-
+<script src="../SCRIPTS/perfil.js"></script>
 </body>
 </html>
