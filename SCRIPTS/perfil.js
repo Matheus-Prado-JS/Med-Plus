@@ -52,10 +52,10 @@ const profileAvatar =
     const img =
       document.createElement("img");
 
-    img.src =
-      avatarType === "male"
-        ? "assets/Perfil-B.png"
-        : "assets/Perfil-A.png";
+img.src =
+  avatarType === "male"
+    ? "../assets/Perfil-B.png"
+    : "../assets/Perfil-A.png";
 
     profileAvatar.appendChild(img);
   }

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Agendamentos - Med+</title>
+  <link rel="icon" type="image/png" href="../assets/M+ logo.png">
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../CSS/med-agendas.css">
   <link rel="stylesheet" href="../CSS/perfil.css">
@@ -150,6 +151,105 @@
   </div>
 </div>
 
+<!-- PROFILE MODAL -->
+<div id="profileModal" class="profile-modal">
+
+  <div class="profile-content">
+
+    <h2>Meu Perfil</h2>
+
+    <div class="profile-top">
+
+      <div class="profile-avatar-wrapper">
+
+      <div id="profileAvatar" class="profile-avatar">
+        U
+      </div>
+
+      <div class="avatar-overlay">
+        ✎
+      </div>
+
+    </div>
+
+      <div class="profile-fields">
+
+        <input
+          type="text"
+          id="profileName"
+          placeholder="Nome"
+        >
+
+        <input
+          type="text"
+          id="profileLastName"
+          placeholder="Sobrenome"
+        >
+
+      </div>
+
+    </div>
+
+    <div id="avatarEditor" class="avatar-editor">
+
+  <h3>Personalizar Avatar</h3>
+
+  <div class="avatar-types">
+
+    <button
+      class="avatar-option"
+      data-avatar="initial"
+    >
+      Inicial
+    </button>
+
+    <button
+      class="avatar-option"
+      data-avatar="male"
+    >
+      Masculino
+    </button>
+
+    <button
+      class="avatar-option"
+      data-avatar="female"
+    >
+      Feminino
+    </button>
+
+  </div>
+
+  <div class="avatar-colors">
+
+    <div class="color-option" data-color="#2a7fff"></div>
+
+    <div class="color-option" data-color="#ff4d6d"></div>
+
+    <div class="color-option" data-color="#8b5cf6"></div>
+
+    <div class="color-option" data-color="#10b981"></div>
+
+    <div class="color-option" data-color="#f59e0b"></div>
+
+    <div class="color-option" data-color="#111827"></div>
+
+  </div>
+
+</div>
+
+    <div class="profile-buttons">
+      <button id="cancelProfile" class="btn-outline">
+        Cancelar
+      </button>
+
+      <button id="saveProfile" class="btn-primary">
+        Salvar
+      </button>
+    </div>
+
+  </div>
+
+</div>
 <!-- SIDEBAR USUÁRIO -->
 <div id="userSidebar" class="sidebar">
   <div class="sidebar-content">
@@ -159,7 +259,7 @@
     </div>
 
     <ul id="sidebarMenu">
-      <li>Perfil</li>
+      <li id="openProfile">Perfil</li>
       <li id="goAgendas">Agendas</li>
       <li id="openNotifications">
         Notificações
@@ -171,6 +271,7 @@
     <div id="notificationsPanel" class="notifications-panel">
   <div class="notifications-header">
     <button id="backSidebar">← Voltar</button>
+      <button id="clearNotifications">Limpar</button>
   </div>
 
   <div id="notificationsList"></div>

@@ -1,6 +1,11 @@
 const closeBtn = document.getElementById("closeModal");
 const modal = document.getElementById("loginModal");
 
+const BASE_PATH =
+  window.location.hostname.includes("github.io")
+    ? "/Med-Plus"
+    : "";
+
 closeBtn.addEventListener("click", () => {
   modal.classList.remove("active");
 });
@@ -167,7 +172,8 @@ const goAgendas = document.getElementById("goAgendas");
 
 if (goAgendas) {
   goAgendas.addEventListener("click", () => {
-    window.location.href = "HTMLS/marcadas.html";
+    window.location.href =
+  `${BASE_PATH}/HTMLS/marcadas.html`;
   });
 }
 
@@ -204,7 +210,7 @@ function generateAvatarHTML(user, className = "avatar") {
         style="background:${avatarColor}"
       >
         <img
-          src="assets/Perfil-B.png"
+          src="../assets/Perfil-B.png"
           class="avatar-image"
         >
       </div>
@@ -220,7 +226,7 @@ function generateAvatarHTML(user, className = "avatar") {
         style="background:${avatarColor}"
       >
         <img
-          src="assets/Perfil-A.png"
+          src="../assets/Perfil-A.png"
           class="avatar-image"
         >
       </div>

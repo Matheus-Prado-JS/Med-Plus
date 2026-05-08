@@ -25,7 +25,6 @@ card.innerHTML = `
   <p><strong>Horário:</strong> ${item.horario}</p>
 
   <div class="card-actions">
-    <button class="btn-outline editar">Editar</button>
     <button class="btn-primary cancelar">Cancelar</button>
   </div>
 `;
